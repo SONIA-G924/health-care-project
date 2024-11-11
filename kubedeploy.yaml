@@ -28,7 +28,7 @@ metadata:
     app: sonia-eta-app
 spec:
   selector:
-    app: sonia-eta-deploy-lbl
+    app: sonia-eta-deploy
 
   type: NodePort
   ports:
