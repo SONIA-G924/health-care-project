@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonia-eta-deploy
+  labels:
+    app: sonia-eta-deploy-lbl
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sonia-eta-app
+  template:
+    metadata:
+      labels:
+        app: sonia-eta-app
+    spec:
+      containers:
+      - name: sonia-eta-container
+        image: sonia0924/health_care
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sonia-eta-np-service
+  labels:
+    app: sonia-eta-app
+spec:
+  selector:
+    app: sonia-eta-deploy-lbl
+
+  type: NodePort
+  ports:
+  - nodePort: 31028
+    port: 8080
+    targetPort: 8080
