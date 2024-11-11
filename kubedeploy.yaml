@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sonia-eta-container
-        image: sonia0924/health_care
+        image: sonia0924/health_care:1.0
         ports:
         - containerPort: 8080
 ---
